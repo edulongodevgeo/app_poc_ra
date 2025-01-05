@@ -1,0 +1,98 @@
+html, body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh; /* Alterado para 100vh para garantir que a altura ocupe 100% da tela */
+    overflow: hidden; /* Impede a rolagem do body */
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #1db954;
+}
+
+.container {
+    display: grid;
+    width: 100vw;
+    height: 100vh; /* Alterado para garantir que o container ocupe toda a altura */
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-rows: 0.1fr 1fr 0.1fr;
+    grid-template-areas: 
+        "nav nav"
+        "sidebar main"
+        "footer footer";
+}
+
+#nav {
+    /* Define a cor de fundo do nav 
+    background-color: #a81b1b; */
+    grid-area: nav;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+}
+
+#main {
+    /* Define a cor de fundo do main
+    background-color: #00e913; */
+    grid-area: main;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 5px; */
+    margin: 5px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    background-color: #00ffd5;
+}
+
+#sidebar {
+    background-color: #7213df;
+    grid-area: sidebar;
+    /* padding: 5px; */
+    margin: 5px;
+}
+
+
+#footer {
+    /* background-color: #ffe600; */
+    grid-area: footer;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+}
+
+@media only screen and (max-width: 640px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.1fr 0.5fr 0.5fr 0.1fr;
+        grid-template-areas: 
+            "nav"
+            "main"
+            "sidebar"
+            "footer";
+    }
+
+    #sidebar {
+        flex-direction: column;
+        overflow: hidden; /* Impede a rolagem do body */
+        max-height: 100%; /* Ajuste o valor de acordo com a altura disponível */
+        margin: 10px;
+    }
+
+    #nav {
+        font-size: 1.5em;
+    }
+
+    #main {
+        margin: 10px;
+    }
+
+}

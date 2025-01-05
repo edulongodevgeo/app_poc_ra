@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AR.js A-Frame Location-based</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script type="text/javascript" src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js"></script>
+    <script type="text/javascript" src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+<body>
+    <a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false" renderer="antialias: true; alpha: true">
+        <!-- Definindo a câmera GPS -->
+        <a-camera gps-new-camera="gpsMinDistance: 5"></a-camera>
+        
+        <!-- Vídeo a ser exibido na posição específica -->
+        <a-video id="ar-video" scale="4 4 4"></a-video>
+    </a-scene>
+
+    <script>
+    // Função para carregar vídeo e coordenadas da API
+    function loadARContent() {
+        fetch('https://script.googleusercontent.com/macros/echo?user_content_key=8-Dse79ro3umWPZwObGwp9rgIEUC8s_mUgg00bBo57VF_9Ty8vOsdzk47VYSuN62tFAx7B0T_X-ek4JxY7oLbE_-T2FC9nzUm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnHzKnG9kWktJjpSux6ERw9C3QKiWaQCrpcfo9tZ-NMsLIg_48Jadd7_7q1clm1bI9vUBTbSltJbqOL8pgoF2LDx7AWt5e1nirQ&lib=MwAEb6bGCelVI-xeXI9c9j1yzx1Bqeb0r')  // Sua URL de API
+            .then(response => response.json())
+            .then(data => {
+                // Aqui pegamos o primeiro item (você pode iterar se houver mais de um)
+                const videoUrl = data[0].video_url;
+                const latitude = data[0].latitude;
+                const longitude = data[0].longitude;
+
+                // Atualizar o componente de vídeo com os dados da API
+                const videoElement = document.getElementById('ar-video');
+                videoElement.setAttribute('src', videoUrl);
+                videoElement.setAttribute('gps-new-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
+            })
+            .catch(error => {
+                console.error('Erro ao carregar dados da API:', error);
+            });
+    }
+
+    // Carregar conteúdo AR assim que a página carregar
+    window.onload = loadARContent;
+</script>
+
+</body>
+</html>

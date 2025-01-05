@@ -1,0 +1,8 @@
+Planilha:
+https://docs.google.com/spreadsheets/d/1bPd6s2yzQSgpOye9sD0gxQ5mo4T-kbzPV8BLXnsPlBQ/edit?gid=0#gid=0
+
+API:
+https://script.googleusercontent.com/macros/echo?user_content_key=YjhUL_8AucfybMy9ic7eMpUfNyGg3B_uopDAPrdZS1MDkOQdUQgKmojcuwGh1CedlFA5oWVz74Uku5yj_DAEIvjimzPmwllvm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnHzKnG9kWktJjpSux6ERw9C3QKiWaQCrpcfo9tZ-NMsLIg_48Jadd7_7q1clm1bI9vUBTbSltJbqOL8pgoF2LDx7AWt5e1nirQ&lib=MwAEb6bGCelVI-xeXI9c9j1yzx1Bqeb0r
+
+Github:
+https://github.com/edulongodevgeo/testear_01_deploy
